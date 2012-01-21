@@ -1,7 +1,7 @@
-pinyin4net
+Ôªøpinyin4net
 =============================================
 
-Pinyin4net can help you convert ÷–Œƒ to zh®≠ng w®¶n.
+Pinyin4net can help you convert ‰∏≠Êñá to zh≈çng w√©n.
 
 Getting started
 ---------------------------------------------
@@ -20,8 +20,8 @@ Features
 * Support both Simplified Chinese and Tranditional Chinese.
 * Multiple options for output format
 ** All uppercase or lowercase
-** Can out put Unicode ®π or v or u:
-** With tone numbers (l®π3) or tone marks (l®∑) or without tone (l®π)
+** Can out put Unicode √º or v or u:
+** With tone numbers (l√º3) or tone marks (l«ö) or without tone (l√º)
 
 Acknowledgments 
 ---------------------------------------------
