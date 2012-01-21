@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<!-- Standard Head Part -->
+	<head>
+		<title>Pinyin4net Quick Start</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<!-- End of Header -->
+		<div id="content">
+			<h2>pinyin4net 1.0 Quick Start</h2>
+			<p>
+				This documentation covers the pinyin4net 1.0 release.
+				<p>
+					If you are new to Chinese, we suggest you begin by reading this article <a href="http://en.wikipedia.org/wiki/Chinese_language">Chinese</a>.
+					And you can read this <a href="http://en.wikipedia.org/wiki/Pinyin">article</a> for understanding Pinyin system.
+				</p>
+				<!--<p>
+					This quick start guide also have Chinese edition.
+				</p>-->
+			</p>
+			<h3 id="headerExample">A Simple Example</h3>
+			<p>
+				Suppose we want get Hanyu pinyin of Chinese character '李'.
+			</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>
+				You should get "li3" from the console.
+			</p>
+			<h3 id="headerUppercase">Format Output to Uppercase</h3>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.CaseType = HanyuPinyinCaseType.UPPERCASE;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>
+				You shuld get "LI3" from the console.
+			</p>
+		
+			<h3>Format Output with Tone Options</h3>
+			<p>Get output with tone number, this option is default.</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.ToneType = HanyuPinyinToneType.WITH_TONE_NUMBER;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "li3" from the console.</p>
+			<p>Get output with out tone number.</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.ToneType = HanyuPinyinToneType.WITHOUT_TONE;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "li" from the console.</p>
+			<p>Get output with out tone marker, this option must combine with option HanyuPinyinVCharType.WITH_U_UNICODE.</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.ToneType = HanyuPinyinToneType.WITH_TONE_MARK;
+      format.VCharType = HanyuPinyinVCharType.WITH_U_UNICODE;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "lǐ" from the console.</p>
+			<h3>About 'ü' Character</h3>
+			<p>Format output replace 'ü' with 'v', this option is default.</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.VCharType = HanyuPinyinVCharType.WITH_V;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "lv3" from the console.</p>
+			<p>Format output replace 'ü' with 'u:'</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.VCharType = HanyuPinyinVCharType.WITH_U_AND_COLON;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "lu:3" from the console.</p>
+			<p>Use Unicode 'a', 'o', 'e', 'i', 'u', 'ü' for output</p>
+			<div class="code">
+				<pre>
+using System;
+using Pinyin4net;
+using Pinyin4net.Format;
+
+namespace Pinyin4net
+{
+  public class QuickStart
+  {
+    public static void Main(string[] args)
+    {
+      HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
+      format.VCharType = HanyuPinyinVCharType.WITH_U_UNICODE;
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      foreach (string pinyin in result)
+        Console.WriteLine(pinyin);
+    }
+  }
+}
+				</pre>
+			</div>
+			<p>You should get "lü3" from the console.</p>
+		</div>		
+		
+		<div id="footer">
+			Copyright &copy; 2012 Yang Kuang. All Rights Reserved.
+		</div>
+		
+	</body>
+</html>
