@@ -26,12 +26,13 @@ Features
 Acknowledgments 
 ---------------------------------------------
 
-Most code of pinyin4net is based on the code of project [pinyin4j](http://pinyin4j.sourceforge.net/). Thanks [Li Min](http://www.eng.nus.edu.sg/LCEL/people/limin/) for the great code ^_^.
+Most code of pinyin4net is based on the code of project [pinyin4j](http://pinyin4j.sourceforge.net/).   
+Thanks [Li Min](http://www.eng.nus.edu.sg/LCEL/people/limin/) for the great code ^_^.
 
 Bug tracker
 ---------------------------------------------
 
-Have a bug? Please create an issue here on GitHub!
+Have a bug? Please create an issue here on GitHub!  
 [https://github.com/YangKuang/pinyin4net/issues](https://github.com/YangKuang/pinyin4net/issues)
 
 Authors
@@ -42,6 +43,6 @@ Authors
 License
 ---------------------------------------------
 
-Copyright 2012 Yang Kuang.
+Copyright 2012 Yang Kuang.  
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0 
 
