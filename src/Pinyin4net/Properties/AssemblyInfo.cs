@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("Pinyin4net")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Pinyin4net is a .net library supporting convertion between Chinese characters and Pinyin systems.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Pinyin4net")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright ©  2012 Yang Kuang")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
