@@ -61,7 +61,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.CaseType = HanyuPinyinCaseType.UPPERCASE;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -89,7 +89,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.ToneType = HanyuPinyinToneType.WITH_TONE_NUMBER;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -113,7 +113,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.ToneType = HanyuPinyinToneType.WITHOUT_TONE;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -138,7 +138,7 @@ namespace Pinyin4net
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.ToneType = HanyuPinyinToneType.WITH_TONE_MARK;
       format.VCharType = HanyuPinyinVCharType.WITH_U_UNICODE;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('李',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -163,7 +163,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.VCharType = HanyuPinyinVCharType.WITH_V;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -187,7 +187,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.VCharType = HanyuPinyinVCharType.WITH_U_AND_COLON;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
@@ -211,7 +211,7 @@ namespace Pinyin4net
     {
       HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
       format.VCharType = HanyuPinyinVCharType.WITH_U_UNICODE;
-      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕');
+      string[] result = PinyinHelper.ToHanyuPinyinStringArray('吕',format);
       foreach (string pinyin in result)
         Console.WriteLine(pinyin);
     }
