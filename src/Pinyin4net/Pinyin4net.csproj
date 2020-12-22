@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="Exceptions\BadFormatException.cs" />
     <Compile Include="Format\HanyuPinyinCaseType.cs" />
     <Compile Include="Format\HanyuPinyinOutputFormat.cs" />
@@ -47,12 +48,17 @@
     <Compile Include="Format\HanyuPinyinVCharType.cs" />
     <Compile Include="Format\PinyinFormatter.cs" />
     <Compile Include="PinyinHelper.cs" />
+    <Compile Include="PinyinRomanizationTranslator.cs" />
     <Compile Include="PinyinRomanizationType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextHelper.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\unicode_to_hanyu_pinyin.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pinyin_mapping.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -57,13 +57,12 @@ namespace Pinyin4net
                 from item in doc.Root.Descendants("item")
                 select new
                 {
-                    Unicode = (string)item.Attribute("unicode"),
-                    Hanyu = (string)item.Attribute("hanyu")
+                    Unicode = (string) item.Attribute("unicode"),
+                    Hanyu = (string) item.Attribute("hanyu")
                 };
             foreach (var item in query)
                 if (item.Hanyu.Length > 0)
                     dict.Add(item.Unicode, item.Hanyu);
-
         }
 
         /// <summary>
@@ -99,7 +98,54 @@ namespace Pinyin4net
             return GetFomattedHanyuPinyinStringArray(ch, format);
         }
 
+        /**
+         * Get all unformmatted Wade-Giles presentations of a single Chinese
+         * character (both Simplified and Tranditional)
+         *
+         * @param ch the given Chinese character
+         * @return a String array contains all unformmatted Wade-Giles presentations
+         * with tone numbers; null for non-Chinese character
+         * @see #toHanyuPinyinStringArray(char)
+         */
+        static public String[] ToWadeGilesPinyinStringArray(char ch)
+        {
+            return ConvertToTargetPinyinStringArray(ch, PinyinRomanizationType.WADEGILES_PINYIN);
+        }
+
         #region Private Functions
+
+        /**
+     * @param ch                 the given Chinese character
+     * @param targetPinyinSystem indicates target Chinese Romanization system should be
+     *                           converted to
+     * @return string representations of target Chinese Romanization system
+     * corresponding to the given Chinese character in array format;
+     * null if error happens
+     * @see PinyinRomanizationType
+     */
+        private static String[] ConvertToTargetPinyinStringArray(char ch,
+            PinyinRomanizationType targetPinyinSystem)
+        {
+            String[] hanyuPinyinStringArray = GetUnformattedHanyuPinyinStringArray(ch);
+
+            if (null != hanyuPinyinStringArray)
+            {
+                String[] targetPinyinStringArray = new String[hanyuPinyinStringArray.Length];
+
+                for (int i = 0; i < hanyuPinyinStringArray.Length; i++)
+                {
+                    targetPinyinStringArray[i] =
+                        PinyinRomanizationTranslator.ConvertRomanizationSystem(hanyuPinyinStringArray[i],
+                            PinyinRomanizationType.HANYU_PINYIN, targetPinyinSystem);
+                }
+
+                return targetPinyinStringArray;
+            }
+            else
+                return new string[] { };
+        }
+
+
         private static string[] GetFomattedHanyuPinyinStringArray(
             char ch, HanyuPinyinOutputFormat format)
         {
@@ -117,7 +163,7 @@ namespace Pinyin4net
 
         private static string[] GetUnformattedHanyuPinyinStringArray(char ch)
         {
-            string code = String.Format("{0:X}", (int)ch).ToUpper();
+            string code = String.Format("{0:X}", (int) ch).ToUpper();
 #if DEBUG
             Console.WriteLine(code);
 #endif
@@ -128,6 +174,7 @@ namespace Pinyin4net
 
             return null;
         }
+
         #endregion
     }
 }

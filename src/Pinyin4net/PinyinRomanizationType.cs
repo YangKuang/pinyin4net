@@ -21,6 +21,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
 using System;
+using System.ComponentModel;
 
 namespace Pinyin4net
 {
@@ -29,7 +30,9 @@ namespace Pinyin4net
     /// </summary>
     public enum PinyinRomanizationType
     {
+        [Description("Hanyu")]
         HANYU_PINYIN,
+        [Description("Wade")]
         WADEGILES_PINYIN,
         MPS2_PINYIN,
         YALE_PINYIN,
