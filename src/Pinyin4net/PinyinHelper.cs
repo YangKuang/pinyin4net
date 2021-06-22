@@ -23,6 +23,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Xml.Linq;
 using System.Linq;
@@ -50,11 +51,17 @@ namespace Pinyin4net
         static PinyinHelper()
         {
             dict = new Dictionary<string, string>();
-            var doc = XDocument.Load(
-                Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                    "Pinyin4net.Resources.unicode_to_hanyu_pinyin.xml"));
+            var name = "Pinyin4net.Resources.unicode_to_hanyu_pinyin.xml";
+            var assembly = Assembly.GetExecutingAssembly();
+
+            using Stream stream = assembly.GetManifestResourceStream(name);
+            if (stream == null)
+            {
+                throw new InvalidOperationException();
+            }
+            var doc = XDocument.Load(stream);
             var query =
-                from item in doc.Root.Descendants("item")
+                from item in doc.Root?.Descendants("item")
                 select new
                 {
                     Unicode = (string)item.Attribute("unicode"),
@@ -63,7 +70,6 @@ namespace Pinyin4net
             foreach (var item in query)
                 if (item.Hanyu.Length > 0)
                     dict.Add(item.Unicode, item.Hanyu);
-
         }
 
         /// <summary>
